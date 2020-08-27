@@ -1,3 +1,5 @@
+using Application.Activities;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -34,6 +36,7 @@ namespace API
                 });
             });
 
+            services.AddMediatR(typeof(List.Handler).Assembly);
             services.AddMvc(opt => opt.EnableEndpointRouting = false)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             // services.AddControllers();
